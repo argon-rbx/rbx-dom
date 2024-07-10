@@ -208,4 +208,24 @@ return {
 			end,
 		},
 	},
+	MeshPart = {
+		MeshId = {
+			read = function(instance: MeshPart)
+				return true, instance.MeshId
+			end,
+			write = function(instance: MeshPart, property: string)
+				local fullName = ("%s.%s"):format(instance.ClassName, property)
+				return false, Error.new(Error.Kind.PropertyNotWritable, fullName)
+			end,
+		},
+		InitialSize = {
+			read = function(instance: MeshPart)
+				return true, instance.MeshSize
+			end,
+			write = function(instance: MeshPart, property: string)
+				local fullName = ("%s.%s"):format(instance.ClassName, property)
+				return false, Error.new(Error.Kind.PropertyNotWritable, fullName)
+			end,
+		},
+	},
 }
