@@ -46,4 +46,6 @@ Change:
 
   MeshPart:
     MeshId:
-      Scriptability: ReadWrite
+      Scriptability: Custom
+    InitialSize:
+      Scriptability: Custom
