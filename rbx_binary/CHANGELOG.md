@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 0.7.6 (2024-08-06)
+* Changed the way instances are added to the serializer to a depth-first post-order traversal. ([#432])
+
+[#432]: https://github.com/rojo-rbx/rbx-dom/pull/432
+
+## 0.7.5 (2024-07-23)
 * Within `PRNT` chunks, parent-child links are now generated depth-first so that parents always come after their children in the chunk. ([#411])
 
 [#411]: https://github.com/rojo-rbx/rbx-dom/pull/411
