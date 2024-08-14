@@ -75,7 +75,7 @@ Roblox Lua implementation of DOM APIs, allowing Instance reflection from inside 
 | -------------------- | ------------------------------- | --------- | ----------- | ------- | ---------- |
 | Attributes           | `Instance.Attributes`           | ✅        | ✅          | ✅      | ✅         |
 | Axes                 | `ArcHandles.Axes`               | ✅        | ✅          | ✅      | ✅         |
-| BinaryString         | `Terrain.MaterialColors`        | ✅        | ⏺️          | ✅      | ✅         |
+| BinaryString         | `BinaryStringValue.Value`       | ✅        | ⏺️          | ✅      | ✅         |
 | Bool                 | `Part.Anchored`                 | ✅        | ✅          | ✅      | ✅         |
 | BrickColor           | `Part.BrickColor`               | ✅        | ✅          | ✅      | ✅         |
 | Bytecode             | `N/A`                           | ❌        | ⛔          | ❌      | ❌         |
@@ -91,6 +91,7 @@ Roblox Lua implementation of DOM APIs, allowing Instance reflection from inside 
 | Font                 | `TextLabel.Font`                | ✅        | ✅          | ✅      | ✅         |
 | Int32                | `Frame.ZIndex`                  | ✅        | ✅          | ✅      | ✅         |
 | Int64                | `Player.UserId`                 | ✅        | ✅          | ✅      | ✅         |
+| MaterialColors       | `Terrain.MaterialColors`        | ✅        | ✅          | ✅      | ✅         |
 | NumberRange          | `ParticleEmitter.Lifetime`      | ✅        | ✅          | ✅      | ✅         |
 | NumberSequence       | `Beam.Transparency`             | ✅        | ✅          | ✅      | ✅         |
 | OptionalCFrame       | `Model.WorldPivotData`          | ✅        | ✅          | ✅      | ✅         |
