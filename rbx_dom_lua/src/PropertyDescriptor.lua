@@ -99,6 +99,8 @@ function PropertyDescriptor:write(instance, value)
 
 		return false, Error.new(Error.Kind.PropertyNotWritable, fullName)
 	end
+
+	error(("Internal error: unexpected value of 'scriptability': %s"):format(tostring(self.scriptability)), 2)
 end
 
 return PropertyDescriptor
