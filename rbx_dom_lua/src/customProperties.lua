@@ -1,8 +1,6 @@
 local CollectionService = game:GetService("CollectionService")
 local ScriptEditorService = game:GetService("ScriptEditorService")
 
-local Error = require(script.Parent.Error)
-
 --- A list of `Enum.Material` values that are used for Terrain.MaterialColors
 local TERRAIN_MATERIAL_COLORS = {
 	Enum.Material.Grass,
@@ -204,18 +202,18 @@ return {
 			read = function(instance: MeshPart)
 				return true, instance.MeshId
 			end,
-			write = function(instance: MeshPart, property: string)
-				local fullName = ("%s.%s"):format(instance.ClassName, property)
-				return false, Error.new(Error.Kind.PropertyNotWritable, fullName)
+			write = function()
+				-- Argon handles this in a custom way
+				return true
 			end,
 		},
 		InitialSize = {
 			read = function(instance: MeshPart)
 				return true, instance.MeshSize
 			end,
-			write = function(instance: MeshPart, property: string)
-				local fullName = ("%s.%s"):format(instance.ClassName, property)
-				return false, Error.new(Error.Kind.PropertyNotWritable, fullName)
+			write = function()
+				-- Argon handles this in a custom way
+				return true
 			end,
 		},
 	},

@@ -1,3 +1,7 @@
+if game.Name == "Game" then
+	task.wait()
+end
+
 if game.Name ~= "defaults-place.rbxlx" then
 	return
 end
