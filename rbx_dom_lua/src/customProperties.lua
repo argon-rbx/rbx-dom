@@ -1,6 +1,8 @@
 local CollectionService = game:GetService("CollectionService")
 local ScriptEditorService = game:GetService("ScriptEditorService")
 
+local Error = require(script.Parent.Error)
+
 --- A list of `Enum.Material` values that are used for Terrain.MaterialColors
 local TERRAIN_MATERIAL_COLORS = {
 	Enum.Material.Grass,
