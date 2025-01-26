@@ -31,5 +31,9 @@ pub fn generate(
 }
 
 pub fn values(output: PathBuf) -> anyhow::Result<()> {
-    cli::values::ValuesSubcommand { output }.run()
+    cli::values::ValuesSubcommand {
+        output,
+        no_pretty: false,
+    }
+    .run()
 }
