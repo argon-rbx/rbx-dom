@@ -16,6 +16,9 @@ use serde::Serialize;
 pub struct ValuesSubcommand {
     /// Where to output the file. The extension must be JSON (.json)
     pub output: PathBuf,
+    /// Whether to pretty-print JSON output.
+    #[clap(long)]
+    pub no_pretty: bool,
 }
 
 impl ValuesSubcommand {
@@ -218,7 +221,14 @@ impl ValuesSubcommand {
             })
             .collect();
 
-        fs::write(&self.output, serde_json::to_string_pretty(&entries)?)?;
+        fs::write(
+            &self.output,
+            if self.no_pretty {
+                serde_json::to_string(&entries)?
+            } else {
+                serde_json::to_string_pretty(&entries)?
+            },
+        )?;
 
         Ok(())
     }

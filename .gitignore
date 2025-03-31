@@ -25,3 +25,7 @@ sourcemap.json
 
 # macOS Finder files
 .DS_Store
+
+# Artifacts
+/*.json
+/*.msgpack
