@@ -53,12 +53,18 @@ Change:
 
   MeshPart:
     MeshId:
+      Scriptability: Custom
       Serialization:
         Type: Migrate
         To: MeshContent
         Migration: ContentIdToContent
     TextureID:
+      Scriptability: Custom
       Serialization:
         Type: Migrate
         To: MeshContent
         Migration: ContentIdToContent
+    InitialSize:
+      Scriptability: Custom
+    MeshContent:
+      Scriptability: Custom
