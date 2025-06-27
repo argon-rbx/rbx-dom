@@ -60,7 +60,7 @@ Change:
     TextureID:
       Serialization:
         Type: Migrate
-        To: MeshContent
+        To: TextureContent
         Migration: ContentIdToContent
     MeshContent:
       Scriptability: Custom
