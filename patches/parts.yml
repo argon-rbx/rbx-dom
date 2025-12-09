@@ -62,3 +62,7 @@ Change:
         Type: Migrate
         To: TextureContent
         Migration: ContentIdToContent
+    MeshContent:
+      Scriptability: Custom
+    InitialSize:
+      Scriptability: Custom

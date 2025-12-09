@@ -234,4 +234,24 @@ return {
 			end,
 		},
 	},
+	MeshPart = {
+		MeshContent = {
+			read = function(instance: MeshPart)
+				return true, instance.MeshContent
+			end,
+			write = function()
+				-- Argon handles this in a custom way
+				return true
+			end,
+		},
+		InitialSize = {
+			read = function(instance: MeshPart)
+				return true, instance.MeshSize
+			end,
+			write = function()
+				-- Argon handles this in a custom way
+				return true
+			end,
+		},
+	},
 }

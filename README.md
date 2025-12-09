@@ -16,36 +16,42 @@ Documentation about the project is hosted at [dom.rojo.space](https://dom.rojo.s
 At this moment, we do not specify a MSRV for any project in rbx-dom. If you need to build one of these libraries with an outdated version of Rust, please open an issue explaining what blockers there are to you updating Cargo, what version you would need us to support, and why.
 
 ## [rbx_dom_weak](rbx_dom_weak)
+
 [![rbx_dom_weak on crates.io](https://img.shields.io/crates/v/rbx_dom_weak.svg)](https://crates.io/crates/rbx_dom_weak)
 [![rbx_dom_weak docs](https://img.shields.io/badge/docs-docs.rs-orange.svg)](https://docs.rs/rbx_dom_weak)
 
 Weakly-typed Roblox DOM implementation. Defines types for representing instances and properties on them.
 
 ## [rbx_types](rbx_types)
+
 [![rbx_types on crates.io](https://img.shields.io/crates/v/rbx_types.svg)](https://crates.io/crates/rbx_types)
 [![rbx_types docs](https://img.shields.io/badge/docs-docs.rs-orange.svg)](https://docs.rs/rbx_types)
 
 Contains Roblox's value types like `Vector3` and `NumberSequence`. Used by crates like rbx_dom_weak and a future rbx_dom_strong crate to let them share types and conversions.
 
 ## [rbx_xml](rbx_xml)
+
 [![rbx_xml on crates.io](https://img.shields.io/crates/v/rbx_xml.svg)](https://crates.io/crates/rbx_xml)
 [![rbx_xml docs](https://img.shields.io/badge/docs-docs.rs-orange.svg)](https://docs.rs/rbx_xml)
 
 Serializer and deserializer for for Roblox's XML model and place formats, `rbxmx` and `rbxlx`.
 
 ## [rbx_binary](rbx_binary)
+
 [![rbx_binary on crates.io](https://img.shields.io/crates/v/rbx_binary.svg)](https://crates.io/crates/rbx_binary)
 [![rbx_binary docs](https://img.shields.io/badge/docs-docs.rs-orange.svg)](https://docs.rs/rbx_binary)
 
 Serializer and deserializer for for Roblox's binary model and place formats, `rbxm` and `rbxl`.
 
 ## [rbx_reflection](rbx_reflection)
+
 [![rbx_reflection on crates.io](https://img.shields.io/crates/v/rbx_reflection.svg)](https://crates.io/crates/rbx_reflection)
 [![rbx_reflection docs](https://img.shields.io/badge/docs-docs.rs-orange.svg)](https://docs.rs/rbx_reflection)
 
 Roblox reflection types for working with Instances in external tooling.
 
 ## [rbx_reflection_database](rbx_reflection_database)
+
 [![rbx_reflection_database on crates.io](https://img.shields.io/crates/v/rbx_reflection_database.svg)](https://crates.io/crates/rbx_reflection_database)
 [![rbx_reflection_database docs](https://img.shields.io/badge/docs-docs.rs-orange.svg)](https://docs.rs/rbx_reflection_database)
 
@@ -65,51 +71,54 @@ Roblox Lua implementation of DOM APIs, allowing Instance reflection from inside 
 
 ## Property Type Coverage
 
-| Property Type           | Example Property                | rbx_types | rbx_dom_lua | rbx_xml | rbx_binary
-|:------------------------|:--------------------------------|:--:|:--:|:--:|:--:|
-| Axes                    | `ArcHandles.Axes`               | ✔ | ✔ | ✔ | ✔ |
-| BinaryString            | `Terrain.MaterialColors`        | ✔ | ➖ | ✔ | ✔ |
-| Bool                    | `Part.Anchored`                 | ✔ | ✔ | ✔ | ✔ |
-| BrickColor              | `Part.BrickColor`               | ✔ | ✔ | ✔ | ✔ |
-| Bytecode                | N/A                             | ❌ | ⛔ | ❌ | ❌ |
-| CFrame                  | `Camera.CFrame`                 | ✔ | ✔ | ✔ | ✔ |
-| Color3                  | `Lighting.Ambient`              | ✔ | ✔ | ✔ | ✔ |
-| Color3uint8             | `Part.BrickColor`               | ✔ | ✔ | ✔ | ✔ |
-| ColorSequence           | `Beam.Color`                    | ✔ | ✔ | ✔ | ✔ |
-| Content                 | `Decal.Texture`                 | ✔ | ✔ | ✔ | ✔ |
-| Enum                    | `Part.Shape`                    | ✔ | ✔ | ✔ | ✔ |
-| Faces                   | `Handles.Faces`                 | ✔ | ✔ | ✔ | ✔ |
-| Float32                 | `Players.RespawnTime`           | ✔ | ✔ | ✔ | ✔ |
-| Float64                 | `Sound.PlaybackLoudness`        | ✔ | ✔ | ✔ | ✔ |
-| Font                    | `TextLabel.Font`                | ✔ | ✔ | ✔ | ✔ |
-| Int32                   | `Frame.ZIndex`                  | ✔ | ✔ | ✔ | ✔ |
-| Int64                   | `Player.UserId`                 | ✔ | ✔ | ✔ | ✔ |
-| NumberRange             | `ParticleEmitter.Lifetime`      | ✔ | ✔ | ✔ | ✔ |
-| NumberSequence          | `Beam.Transparency`             | ✔ | ✔ | ✔ | ✔ |
-| OptionalCFrame          | `Model.WorldPivotData`          | ✔ | ✔ | ✔ | ✔ |
-| PhysicalProperties      | `Part.CustomPhysicalProperties` | ✔ | ✔ | ✔ | ✔ |
-| ProtectedString         | `ModuleScript.Source`           | ✔ | ✔ | ✔ | ✔ |
-| Ray                     | `RayValue.Value`                | ✔ | ✔ | ✔ | ✔ |
-| Rect                    | `ImageButton.SliceCenter`       | ✔ | ✔ | ✔ | ✔ |
-| Ref                     | `Model.PrimaryPart`             | ✔ | ✔ | ✔ | ✔ |
-| Region3                 | N/A                             | ✔ | ✔ | ❌ | ❌ |
-| Region3int16            | `Terrain.MaxExtents`            | ✔ | ✔ | ❌ | ❌ |
-| SecurityCapabilities    | `Folder.SecurityCapabilities`   | ✔ | ❌ | ✔ | ✔ |
-| SharedString            | N/A                             | ✔ | ✔ | ✔ | ✔ |
-| String                  | `Instance.Name`                 | ✔ | ✔ | ✔ | ✔ |
-| UDim                    | `UIListLayout.Padding`          | ✔ | ✔ | ✔ | ✔ |
-| UDim2                   | `Frame.Size`                    | ✔ | ✔ | ✔ | ✔ |
-| UniqueId                | `Instance.UniqueId`             | ✔ | ❌ | ✔ | ✔ |
-| Vector2                 | `ImageLabel.ImageRectSize`      | ✔ | ✔ | ✔ | ✔ |
-| Vector2int16            | N/A                             | ✔ | ✔ | ✔ | ❌ |
-| Vector3                 | `Part.Size`                     | ✔ | ✔ | ✔ | ✔ |
-| Vector3int16            | `TerrainRegion.ExtentsMax`      | ✔ | ✔ | ✔ | ✔ |
-| QDir                    | `Studio.Auto-Save Path`         | ⛔ | ⛔ | ⛔ | ⛔ |
-| QFont                   | `Studio.Font`                   | ⛔ | ⛔ | ⛔ | ⛔ |
+| Property Type        | Example Property                | rbx_types | rbx_dom_lua | rbx_xml | rbx_binary |
+| -------------------- | ------------------------------- | --------- | ----------- | ------- | ---------- |
+| Attributes           | `Instance.Attributes`           | ✅        | ✅          | ✅      | ✅         |
+| Axes                 | `ArcHandles.Axes`               | ✅        | ✅          | ✅      | ✅         |
+| BinaryString         | `BinaryStringValue.Value`       | ✅        | ⏺️          | ✅      | ✅         |
+| Bool                 | `Part.Anchored`                 | ✅        | ✅          | ✅      | ✅         |
+| BrickColor           | `Part.BrickColor`               | ✅        | ✅          | ✅      | ✅         |
+| Bytecode             | `N/A`                           | ❌        | ⛔          | ❌      | ❌         |
+| CFrame               | `Camera.CFrame`                 | ✅        | ✅          | ✅      | ✅         |
+| Color3               | `Lighting.Ambient`              | ✅        | ✅          | ✅      | ✅         |
+| Color3uint8          | `Part.BrickColor`               | ✅        | ✅          | ✅      | ✅         |
+| ColorSequence        | `Beam.Color`                    | ✅        | ✅          | ✅      | ✅         |
+| Content              | `Decal.Texture`                 | ✅        | ✅          | ✅      | ✅         |
+| Enum                 | `Part.Shape`                    | ✅        | ✅          | ✅      | ✅         |
+| Faces                | `Handles.Faces`                 | ✅        | ✅          | ✅      | ✅         |
+| Float32              | `Players.RespawnTime`           | ✅        | ✅          | ✅      | ✅         |
+| Float64              | `Sound.PlaybackLoudness`        | ✅        | ✅          | ✅      | ✅         |
+| Font                 | `TextLabel.Font`                | ✅        | ✅          | ✅      | ✅         |
+| Int32                | `Frame.ZIndex`                  | ✅        | ✅          | ✅      | ✅         |
+| Int64                | `Player.UserId`                 | ✅        | ✅          | ✅      | ✅         |
+| MaterialColors       | `Terrain.MaterialColors`        | ✅        | ✅          | ✅      | ✅         |
+| NumberRange          | `ParticleEmitter.Lifetime`      | ✅        | ✅          | ✅      | ✅         |
+| NumberSequence       | `Beam.Transparency`             | ✅        | ✅          | ✅      | ✅         |
+| OptionalCFrame       | `Model.WorldPivotData`          | ✅        | ✅          | ✅      | ✅         |
+| PhysicalProperties   | `Part.CustomPhysicalProperties` | ✅        | ✅          | ✅      | ✅         |
+| ProtectedString      | `ModuleScript.Source`           | ✅        | ✅          | ✅      | ✅         |
+| Ray                  | `RayValue.Value`                | ✅        | ✅          | ✅      | ✅         |
+| Rect                 | `ImageButton.SliceCenter`       | ✅        | ✅          | ✅      | ✅         |
+| Ref                  | `Model.PrimaryPart`             | ✅        | ✅          | ✅      | ✅         |
+| Region3              | `N/A`                           | ✅        | ✅          | ❌      | ❌         |
+| Region3int16         | `Terrain.MaxExtents`            | ✅        | ✅          | ❌      | ❌         |
+| SecurityCapabilities | `Folder.SecurityCapabilities`   | ✅        | ❌          | ✅      | ✅         |
+| SharedString         | `N/A`                           | ✅        | ✅          | ✅      | ✅         |
+| String               | `Instance.Name`                 | ✅        | ✅          | ✅      | ✅         |
+| UDim                 | `UIListLayout.Padding`          | ✅        | ✅          | ✅      | ✅         |
+| UDim2                | `Frame.Size`                    | ✅        | ✅          | ✅      | ✅         |
+| UniqueId             | `Instance.UniqueId`             | ✅        | ❌          | ✅      | ✅         |
+| Vector2              | `ImageLabel.ImageRectSize`      | ✅        | ✅          | ✅      | ✅         |
+| Vector2int16         | `N/A`                           | ✅        | ✅          | ✅      | ❌         |
+| Vector3              | `Part.Size`                     | ✅        | ✅          | ✅      | ✅         |
+| Vector3int16         | `TerrainRegion.ExtentsMax`      | ✅        | ✅          | ✅      | ✅         |
+| QDir                 | `Studio.Auto-Save Path`         | ⛔        | ⛔          | ⛔      | ⛔         |
+| QFont                | `Studio.Font`                   | ⛔        | ⛔          | ⛔      | ⛔         |
 
-✔ Implemented | ❌ Unimplemented | ➖ Partially Implemented | ⛔ Never
+✅ Implemented | ❌ Unimplemented | ⏺️ Partially Implemented | ⛔ Never
 
 ## Outcome
+
 This project has unveiled a handful of interesting bugs and quirks in Roblox!
 
 - `GuiMain.DisplayOrder` is uninitialized, so its default value isn't stable
@@ -139,4 +148,5 @@ The process for publishing these is:
 6. Publish to Cargo
 
 ## License
+
 rbx-dom is available under the MIT license. See [LICENSE.txt](LICENSE.txt) for details.

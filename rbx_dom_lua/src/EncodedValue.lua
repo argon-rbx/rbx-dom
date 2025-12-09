@@ -10,16 +10,6 @@ local function unpackDecoder(f)
 	end
 end
 
-local function serializeFloat(value)
-	-- TODO: Figure out a better way to serialize infinity and NaN, neither of
-	-- which fit into JSON.
-	if value == math.huge or value == -math.huge then
-		return 999999999 * math.sign(value)
-	end
-
-	return value
-end
-
 local ALL_AXES = { "X", "Y", "Z" }
 local ALL_FACES = { "Right", "Top", "Back", "Left", "Bottom", "Front" }
 
@@ -276,12 +266,12 @@ types = {
 
 	Float32 = {
 		fromPod = identity,
-		toPod = serializeFloat,
+		toPod = identity,
 	},
 
 	Float64 = {
 		fromPod = identity,
-		toPod = serializeFloat,
+		toPod = identity,
 	},
 
 	Font = {
@@ -406,12 +396,14 @@ types = {
 				return "Default"
 			else
 				return {
-					density = roblox.Density,
-					friction = roblox.Friction,
-					elasticity = roblox.Elasticity,
-					frictionWeight = roblox.FrictionWeight,
-					elasticityWeight = roblox.ElasticityWeight,
-					acousticAbsorption = roblox.AcousticAbsorption,
+					Custom = {
+						density = roblox.Density,
+						friction = roblox.Friction,
+						elasticity = roblox.Elasticity,
+						frictionWeight = roblox.FrictionWeight,
+						elasticityWeight = roblox.ElasticityWeight,
+            acousticAbsorption = roblox.AcousticAbsorption,
+					},
 				}
 			end
 		end,
@@ -522,8 +514,8 @@ types = {
 
 		toPod = function(roblox)
 			return {
-				serializeFloat(roblox.X),
-				serializeFloat(roblox.Y),
+				identity(roblox.X),
+				identity(roblox.Y),
 			}
 		end,
 	},
@@ -541,9 +533,9 @@ types = {
 
 		toPod = function(roblox)
 			return {
-				serializeFloat(roblox.X),
-				serializeFloat(roblox.Y),
-				serializeFloat(roblox.Z),
+				identity(roblox.X),
+				identity(roblox.Y),
+				identity(roblox.Z),
 			}
 		end,
 	},
