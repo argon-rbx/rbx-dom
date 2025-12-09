@@ -69,8 +69,11 @@ impl Faces {
         self.flags.bits()
     }
 
-    pub fn from_bits(bits: u8) -> Option<Self> {
-        FaceFlags::from_bits(bits).map(|flags| Self { flags })
+    pub const fn from_bits(bits: u8) -> Option<Self> {
+        match FaceFlags::from_bits(bits) {
+            Some(flags) => Some(Self { flags }),
+            None => None,
+        }
     }
 
     #[cfg(feature = "serde")]
@@ -173,8 +176,8 @@ mod serde_impl {
         fn visit_seq<A: SeqAccess<'de>>(self, mut seq: A) -> Result<Self::Value, A::Error> {
             let mut flags = FaceFlags::empty();
 
-            while let Some(face_str) = seq.next_element::<&str>()? {
-                match face_str {
+            while let Some(face_str) = seq.next_element::<String>()? {
+                match face_str.as_str() {
                     "Right" => flags |= FaceFlags::RIGHT,
                     "Top" => flags |= FaceFlags::TOP,
                     "Back" => flags |= FaceFlags::BACK,
@@ -182,7 +185,7 @@ mod serde_impl {
                     "Bottom" => flags |= FaceFlags::BOTTOM,
                     "Front" => flags |= FaceFlags::FRONT,
                     _ => {
-                        return Err(A::Error::custom(format!("invalid face '{}'", face_str)));
+                        return Err(A::Error::custom(format!("invalid face '{face_str}'")));
                     }
                 }
             }

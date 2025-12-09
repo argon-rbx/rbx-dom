@@ -54,8 +54,11 @@ impl Axes {
         self.flags.bits()
     }
 
-    pub fn from_bits(bits: u8) -> Option<Self> {
-        AxisFlags::from_bits(bits).map(|flags| Self { flags })
+    pub const fn from_bits(bits: u8) -> Option<Self> {
+        match AxisFlags::from_bits(bits) {
+            Some(flags) => Some(Self { flags }),
+            None => None,
+        }
     }
 
     #[cfg(feature = "serde")]
@@ -134,13 +137,13 @@ mod serde_impl {
         fn visit_seq<A: SeqAccess<'de>>(self, mut seq: A) -> Result<Self::Value, A::Error> {
             let mut flags = AxisFlags::empty();
 
-            while let Some(axis_str) = seq.next_element::<&str>()? {
-                match axis_str {
+            while let Some(axis_str) = seq.next_element::<String>()? {
+                match axis_str.as_str() {
                     "X" => flags |= AxisFlags::X,
                     "Y" => flags |= AxisFlags::Y,
                     "Z" => flags |= AxisFlags::Z,
                     _ => {
-                        return Err(A::Error::custom(format!("invalid axis '{}'", axis_str)));
+                        return Err(A::Error::custom(format!("invalid axis '{axis_str}'")));
                     }
                 }
             }

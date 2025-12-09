@@ -23,7 +23,7 @@ impl Chunk {
     pub fn decode<R: Read>(mut reader: R) -> io::Result<Chunk> {
         let header = decode_chunk_header(&mut reader)?;
 
-        log::trace!("{}", header);
+        log::trace!("{header}");
 
         let data = if header.compressed_len == 0 {
             log::trace!("No compression");
@@ -76,6 +76,13 @@ impl ChunkBuilder {
             compression,
             buffer: Vec::new(),
         }
+    }
+
+    /// Reserve bytes and use a closure to initialize them.
+    pub fn initialize_bytes_with(&mut self, len: usize, initialize_bytes: impl FnOnce(&mut [u8])) {
+        let current_len = self.buffer.len();
+        self.buffer.extend(core::iter::repeat_n(0, len));
+        initialize_bytes(&mut self.buffer[current_len..]);
     }
 
     /// Consume the chunk and write it to the given writer.

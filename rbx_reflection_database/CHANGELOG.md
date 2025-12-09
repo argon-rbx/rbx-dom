@@ -1,6 +1,20 @@
 # rbx\_reflection_database Changelog
 
-## Unreleased Changes
+## 2.0.2+roblox-700 (2025-11-27)
+* Updated to Roblox version 700.
+* StyleRule's `PropertiesSerialize` property's is now serialized as the `Attributes` type.
+
+## 2.0.1+roblox-697 (2025-11-06)
+* Updated to Roblox version 697.
+
+## 2.0.0+roblox-694 (2025-10-10)
+* Updated to Roblox version 694.
+* The database may now be loaded dynamically from the local file system. ([#376])
+  The location is OS-dependent but it will only be loaded if one exists. The location may also be manually specified using the `RBX_DATABASE` environment variable.
+
+	`get` has been changed to return a `Result<Path, Error>` instead of always succeeding, and will return the locally stored database if it exists and the bundled one if not. Two methods (`get_bundled` and `get_local`) will only fetch the bundled database and one that's stored locally respectively if you want to do that. It is recommended you continue using `get`, but `get_bundled` is a true replacement for its old behavior and will never fail.
+
+[#376]: https://github.com/rojo-rbx/rbx-dom/pull/376
 
 ## 1.0.3+roblox-670 (2025-04-25)
 * Set `Instance.Capabilities` to be unscriptable ([#523])

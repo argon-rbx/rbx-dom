@@ -165,20 +165,13 @@ impl ValuesSubcommand {
         values.insert("OptionalCFrame-None", Variant::OptionalCFrame(None));
         values.insert(
             "OptionalCFrame-Some",
-            Variant::OptionalCFrame(Some(CFrame::new(
-                Vector3::new(0.0, 0.0, 0.0),
-                Matrix3::identity(),
-            ))),
+            Variant::OptionalCFrame(Some(CFrame::identity())),
         );
         values.insert(
             "PhysicalProperties-Custom",
-            PhysicalProperties::Custom(CustomPhysicalProperties {
-                density: 0.5,
-                friction: 1.0,
-                elasticity: 0.0,
-                friction_weight: 50.0,
-                elasticity_weight: 25.0,
-            })
+            PhysicalProperties::Custom(CustomPhysicalProperties::new(
+                0.5, 1.0, 0.0, 50.0, 25.0, 0.15625,
+            ))
             .into(),
         );
         values.insert(

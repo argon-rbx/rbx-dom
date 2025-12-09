@@ -1,6 +1,15 @@
 # rbx_binary Changelog
 
-## Unreleased
+## 2.0.1 (2025-11-27)
+* Improved performance in several ways. Serializing in particular has been dramatically improved.
+
+## 2.0.0 (2025-10-10)
+* Upgrade rbx-dom dependencies, which results in breaking changes to some data types.
+* Implement support for serializing and deserializing the `NetAssetRef` type. ([#555])
+* Implement support for `AcousticAbsorption` in `PhysicalProperties`. ([#556])
+
+[#555]: https://github.com/rojo-rbx/rbx-dom/pull/555
+[#556]: https://github.com/rojo-rbx/rbx-dom/pull/556
 
 ## 1.0.0 (2025-03-28)
 * Dramatically improved performance of serializer and deserializer by using `Ustr` to represent property and class names ([#462]).

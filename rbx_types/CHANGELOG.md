@@ -1,12 +1,27 @@
 # rbx_types Changelog
 
-## Unreleased Changes
+# 3.1.0 (2025-11-27)
+* Fixed `serde::Deserialize` implementations for `BinaryString`, `SharedString`, `NetAssetRef`, `Faces`, and `Axes` to properly utilize visitors. ([#563])
+* Added `CFrame::identity` convenience method to construct an identity CFrame. ([#567])
 
+[#563]: https://github.com/rojo-rbx/rbx-dom/pull/563
+[#567]: https://github.com/rojo-rbx/rbx-dom/pull/567
+
+# 3.0.0 (2025-10-10)
+* Marked `CustomPhysicalProperties`, `TerrainMaterials`, `FontStyle`, and `FontWeight` as non-exhaustive. This is a breaking change. ([#556], [#557])
+* Changed `CustomPhysicalProperties` to use private fields and to have a constructor and setters/getters. This is a breaking change. ([#556])
+* Reworked `CustomPhysicalProperties` to support `AudioAbsorption` ([#556])
+* Implement support for serializing and deserializing the `NetAssetRef` type. ([#555])
 * Added `Ref::some` to construct a Ref from a u128. ([#516])
 * Added `Content::as_object` and `Content::as_uri` to assume the respective type (optional value). ([#511])
 * Added `Content::into_value` to support converting a `Content` into its underlying value. ([#507])
 
+[#516]: https://github.com/rojo-rbx/rbx-dom/pull/516
+[#511]: https://github.com/rojo-rbx/rbx-dom/pull/511
 [#507]: https://github.com/rojo-rbx/rbx-dom/pull/507
+[#556]: https://github.com/rojo-rbx/rbx-dom/pull/556
+[#555]: https://github.com/rojo-rbx/rbx-dom/pull/555
+[#557]: https://github.com/rojo-rbx/rbx-dom/pull/557
 
 ## 2.0.0 (2025-03-28)
 * Changed `Content` to more closely align with Roblox's new `Content` type. This is a breaking change. ([#495])
