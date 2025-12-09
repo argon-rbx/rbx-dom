@@ -402,7 +402,7 @@ types = {
 						elasticity = roblox.Elasticity,
 						frictionWeight = roblox.FrictionWeight,
 						elasticityWeight = roblox.ElasticityWeight,
-            acousticAbsorption = roblox.AcousticAbsorption,
+						acousticAbsorption = roblox.AcousticAbsorption,
 					},
 				}
 			end
